@@ -10,38 +10,214 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
+    :root {
+      --light-red: hsl(0, 100%, 67%);
+      --orangey-yellow: hsl(39, 100%, 56%);
+      --green-teal: hsl(166, 100%, 37%);
+      --cobalt-blue: hsl(234, 85%, 45%);
+      --light-slate-blue: hsl(252, 100%, 67%, 0.9);
+      --light-royal-blue: hsl(241, 81%, 54%, 0.97);
+      --violet-blue: hsla(256, 72%, 46%, 0.75);
+      --persian-blue: hsla(241, 72%, 46%, 0.75);
+      --white: hsl(0, 0%, 100%);
+      --pale-blue: hsl(221, 100%, 96%);
+      --light-lavender: hsl(241, 100%, 89%, 0.8);
+      --dark-gray-blue: hsl(224, 30%, 27%, 0.5);
+    }
+    * {
+      font-family: Hakan-grotesk,serif !important;
+      font-size: 18px;
+    }
+    .attribution { font-size: 11px; text-align: center;  margin-top: 2rem;}
     .attribution a { color: hsl(228, 45%, 44%); }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 8px 8px 45px 0 var(--light-lavender);
+      border-radius: 1.5rem;
+    }
+    .grade-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, hsl(241, 81%, 54%, 0.85) 4%, hsl(241, 81%, 54%, 1) 51%) !important;
+      padding: 1rem;
+      border-radius: 1.46rem;
+      width: 230px;
+    }
+
+    .grade-title {
+      color: var(--light-lavender);
+      margin: 0.8rem 0 1.3rem;
+    }
+
+    .circle {
+      border-radius: 12rem;
+      height: 8rem;
+      width: 8rem;
+      background: linear-gradient(0deg,  hsla(241, 72%, 46%, 0.65) 50%,  hsla(256, 72%, 46%, 0.85) 100%) !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .grade {
+      font-size: 60px;
+      color: var(--white);
+    }
+
+    .max-grade {
+      color: var(--light-lavender);
+      font-size: 11px;
+    }
+
+    .grade-status {
+      font-size: 25px;
+      color: var(--white);
+      margin: 1rem 0;
+    }
+
+    .grade-description {
+      color: var(--light-lavender);
+      font-size: 13px;
+      text-align: center;
+      width: 164px;
+      padding: 0 0 1.2rem;
+    }
+
+    .summary-container {
+      padding: 1.5rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .summary-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .reaction {
+      margin-top: 2rem;
+    }
+
+    .reaction, .memory , .verbal , .visual , .submit {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem;
+      line-height: 1.1rem;
+      width: 205px;
+      margin: 0.3rem 0;
+    }
+
+    .item {
+      display: flex;
+      font-size: 14px;
+    }
+
+    .item-grade {
+      color: hsl(224, 30%, 27%);
+      font-size: 0.85rem;
+    }
+
+    .item-grade .max {
+      color: var(--light-lavender);
+      font-size: 0.85rem;
+    }
+
+    .item svg {
+      margin-right: 0.3rem;
+    }
+
+    .reaction {
+      border-radius: 6px;
+      background: hsl(0, 100%, 67%, 0.08);
+      color: hsl(0, 100%, 67%);
+    }
+
+    .memory {
+      border-radius: 6px;
+      background: hsl(39, 100%, 56%, 0.08);
+      color:hsl(39, 100%, 56%);
+    }
+
+    .verbal {
+      border-radius: 6px;
+      background: hsl(166, 100%, 37%, 0.08);
+      color: hsl(166, 100%, 37%);
+    }
+
+    .visual {
+      border-radius: 6px;
+      background: hsl(234, 85%, 45%, 0.08);
+      color: hsl(234, 85%, 45%);
+    }
+
+    .submit {
+      margin-top: 1.2rem;
+      background: hsl(224, 30%, 27%);
+      color: var(--white);
+      display: flex;
+      justify-content: center;
+      border-radius: 1rem;
+      width: 100%;
+      text-align: center;
+      border: none;
+      font-size: .9rem;
+    }
+
+    .submit:hover {
+      background: linear-gradient(180deg, hsl(252, 100%, 67%, 1) 4%, hsl(241, 81%, 54%, 1) 99%) !important;
+      color: var(--white);
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-
-  Your Result
-  76
-  of 100
-
-  Great
-  You scored higher than 65% of the people who have taken these tests.
-  
-  Summary
-
-  Reaction
-  80 / 100
-
-  Memory
-  92 / 100
-
-  Verbal
-  61 / 100
-
-  Visual
-  72 / 100
-
-  Continue
-  
+  <div class="container">
+    <div class="grade-container">
+      <span class="grade-title">Your Result</span>
+      <div class="circle">
+        <span class="grade">76</span>
+        <span class="max-grade">of 100</span>
+      </div>
+      <span class="grade-status">Great</span>
+      <span class="grade-description">You scored higher than 65% of the people who have taken these tests.</span>
+    </div>
+    <div class="summary-container">
+      <span class="summary-title">Summary</span>
+      <div class="reaction">
+        <span class="item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="#F55" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M10.833 8.333V2.5l-6.666 9.167h5V17.5l6.666-9.167h-5Z"/></svg>Reaction</span>
+        <span class="item-grade">80 <span class="max"> / 100</span></span>
+      </div>
+      <div class="memory">
+        <span class="item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="#FFB21E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M5.833 11.667a2.5 2.5 0 1 0 .834 4.858"/><path stroke="#FFB21E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M3.553 13.004a3.333 3.333 0 0 1-.728-5.53m.025-.067a2.083 2.083 0 0 1 2.983-2.824m.199.054A2.083 2.083 0 1 1 10 3.75v12.917a1.667 1.667 0 0 1-3.333 0M10 5.833a2.5 2.5 0 0 0 2.5 2.5m1.667 3.334a2.5 2.5 0 1 1-.834 4.858"/><path stroke="#FFB21E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M16.447 13.004a3.334 3.334 0 0 0 .728-5.53m-.025-.067a2.083 2.083 0 0 0-2.983-2.824M10 3.75a2.085 2.085 0 0 1 2.538-2.033 2.084 2.084 0 0 1 1.43 2.92m-.635 12.03a1.667 1.667 0 0 1-3.333 0"/></svg>Memory</span>
+        <span class="item-grade">92 <span class="max"> / 100</span></span>
+      </div>
+      <div class="verbal">
+        <span class="item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="#00BB8F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M7.5 10h5M10 18.333A8.333 8.333 0 1 0 1.667 10c0 1.518.406 2.942 1.115 4.167l-.699 3.75 3.75-.699A8.295 8.295 0 0 0 10 18.333Z"/></svg>Verbal</span>
+        <span class="item-grade">61 <span class="max"> / 100</span></span>
+      </div>
+      <div class="visual">
+        <span class="item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="#1125D6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M10 11.667a1.667 1.667 0 1 0 0-3.334 1.667 1.667 0 0 0 0 3.334Z"/><path stroke="#1125D6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M17.5 10c-1.574 2.492-4.402 5-7.5 5s-5.926-2.508-7.5-5C4.416 7.632 6.66 5 10 5s5.584 2.632 7.5 5Z"/></svg>Visual</span>
+        <span class="item-grade">72 <span class="max"> / 100</span></span>
+      </div>
+      <button class="submit">Continue</button>
+    </div>
+  </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://github.com/soloraid/Results-summary-component">Hashem Pourallahverdi</a>.
   </div>
 </body>
 </html>
